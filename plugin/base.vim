@@ -62,6 +62,6 @@ nmap <silent> <leader>sl :call LoadSession()<CR>
 
 augroup RudimentarySession
 	autocmd VimEnter * call LoadSession()
+   "setlocal cursorline
 augroup END
-
 
