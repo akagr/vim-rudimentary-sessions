@@ -9,21 +9,24 @@ if exists('b:loaded_rudimentary_sessions_ftplugin')
 endif
 let b:loaded_rudimentary_sessions_ftplugin = 1
 
-" Rudimentary session management
-if version >= 700
-   set sessionoptions=blank,buffers,curdir,tabpages,winpos,folds
-endif
-
-if !exists("s:sessionautoloaded")
-   let s:sessionautoloaded = 0
-endif
-
-if filereadable('./.session.vim')
-   if s:sessionautoloaded == 0
-      source ./.session.vim
-      let s:sessionautoloaded = 1
+function! LoadSession()
+   " Rudimentary session management
+   if version >= 700
+      set sessionoptions=blank,buffers,sesdir,tabpages,winpos,folds,options,unix
    endif
-endif
+
+   if !exists("s:sessionautoloaded")
+      let s:sessionautoloaded = 0
+   endif
+
+   if filereadable('./.session.vim')
+      if s:sessionautoloaded == 0
+         source ./.session.vim
+         let s:sessionautoloaded = 1
+         echo "Session loaded."
+      endif
+   endif
+endfunction
 
 function! SaveSession()
    if s:sessionautoloaded == 1
@@ -55,4 +58,10 @@ endfunction
 " Session is saved with <leader>ss (<leader> is \ by default)
 nmap <silent> <leader>ss :call SaveSession()<CR>
 nmap <silent> <leader>sc :call CreateSession()<CR>
+nmap <silent> <leader>sl :call LoadSession()<CR>
+
+augroup RudimentarySession
+	autocmd VimEnter * call LoadSession()
+   "setlocal cursorline
+augroup END
 
