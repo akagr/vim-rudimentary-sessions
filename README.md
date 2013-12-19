@@ -11,7 +11,7 @@ Use your favorite bundle manager to install. If you don't use one, look at [Vund
 
 ## Usage ##
 
-After installing this plugin, vim will try to save its current state in a file called `.sessions.vim` inside the current directory. When you fire up vim from same directory again, it will load your session automatically.
+After installing this plugin, vim will try to save its current state in a file called `.sessions.vim` inside the current directory every time you leave vim. When you fire up vim from same directory again, it will load your session automatically.
 
 You also have the following commands to save the session manually should you like to.
 
