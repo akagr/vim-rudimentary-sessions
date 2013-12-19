@@ -1,30 +1,20 @@
 # Rudimentary Sessions Support for Vim #
 
-This Vim bundle only slightly enchances the Vim's built-in session support.
-Reasoning for writing this can be read at [my blog](http://krivokuca.net/2012/08/tip-very-rudimentary-session-management-in-vim/).
+Ever wish vim being able to save its current state with all the buffers, windows etc. and open them right back when you fire up vim again?
+Well vim already has sessions. But most find them a little too much of an effort compared to what other editors are offering. So lets get down to business.
 
+This is a fork from casastorta's plugin of the same name. Thanks for this buddy. I plan to modify and add a bit more polish to it.
 
 ## Installation ##
 
-If you're using [vim-pathogen](https://github.com/tpope/vim-pathogen), simply clone this repository into your
-`~/.vim/bundles` directory (or equivalent on your OS).
-
+Use your favorite bundle manager to install. If you don't use one, look at [Vundle](https://github.com/gmarik/vundle).
 
 ## Usage ##
 
-Again, the intended way this should work is described at [my blog](http://krivokuca.net/2012/08/tip-very-rudimentary-session-management-in-vim/).
+After installing this plugin, vim will try to save its current state in a file called `.sessions.vim` inside the current directory. When you fire up vim from same directory again, it will load your session automatically.
 
-If you find it useful, basic commands for manipulating rudimentary sessions
-are:
+You also have the following commands to save the session manually should you like to.
 
 * `<leader>sc` - creates new rudimentary session in the current directory
 * `<leader>ss` - saves current session as rudimentary session in the current directory
-
-## Tips ##
-
-If you want rudimentary sessions to save your session every time you exit
-vim, add the following line to your `.vimrc` or equvialent:
-
-   autocmd VimLeave * call SaveSession()
-
 
