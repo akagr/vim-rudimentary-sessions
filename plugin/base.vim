@@ -14,8 +14,9 @@ nmap <silent> <leader>sc :call sessions#create()<CR>
 nmap <silent> <leader>sl :call sessions#load()<CR>
 
 augroup RudimentarySession
-	autocmd VimEnter * call sessions#load()
-   "setlocal cursorline
-   autocmd VimLeave * call sessions#save()
+  autocmd!
+  autocmd VimEnter * call sessions#load()
+  "setlocal cursorline
+  autocmd VimLeave * call sessions#save()
 augroup END
 
