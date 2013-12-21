@@ -4,21 +4,21 @@ function! sessions#load()
       set sessionoptions=blank,buffers,sesdir,tabpages,winpos,folds,options,unix,slash
    endif
 
-   if !exists("s:sessionautoloaded")
-      let s:sessionautoloaded = 0
+   if !exists("s:sessionloaded")
+      let s:sessionloaded = 0
    endif
 
    if filereadable('./.session.vim')
-      if s:sessionautoloaded == 0
+      if s:sessionloaded == 0
          source ./.session.vim
-         let s:sessionautoloaded = 1
+         let s:sessionloaded = 1
          echom "Session loaded."
       endif
    endif
 endfunction
 
 function! sessions#save()
-   if s:sessionautoloaded == 1
+   if s:sessionloaded == 1
       mksession! ./.session.vim
       echom "Session saved."
       "source ./.session.vim
@@ -32,10 +32,11 @@ function! sessions#create()
    if !filewritable('./.session.vim')
       if tolower(input("No session file in " . path . ". Create one? [Y]es/[N]o ")) =~ "y"
          mksession! ./.session.vim
+         let s:sessionloaded = 1
       endif
    else
       if tolower(input("Session file " . path . "/.seesion.vim already exists. Overwrite? [Y]es/[N]o? ")) =~ "y"
-         let s:sessionautoloaded = 1
+         let s:sessionloaded = 1
          call sessions#save()
       endif
    endif
