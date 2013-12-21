@@ -13,7 +13,7 @@ Use your favorite bundle manager to install. If you don't use one, look at [Vund
 
 After installing this plugin, just use `<leader>sc` to create a session file in the current directory. From this point, vim will automatically save session each time you exit vim.  When you fire up vim from same directory again, it will load your session automatically.
 
-**Note:** You will to create a session first by the given command give above. The session will not be saved automatically if the session file does not exists.
+**Note:** You will have to create a session first by the command given above. The session will not be saved automatically if the session file does not exists.
 
 You also have the following commands to save the session manually should you like to.
 
