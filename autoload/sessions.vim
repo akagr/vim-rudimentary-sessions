@@ -24,9 +24,6 @@ function! sessions#save()
       "source ./.session.vim
    else
       echom "No session to save. Please create session with ':mksession .session.vim' first! "
-      if tolower(input("Autocreate session for you? [Y]es/[N]o ")) =~ "y"
-         call sessions#create()
-      endif
    endif
 endfunction
 
